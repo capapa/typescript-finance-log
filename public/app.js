@@ -1,15 +1,41 @@
 "use strict";
-// method 1
-// const anchor = document.querySelector('a');
-// if (anchor){
-//     console.log(anchor?.href);
-// }
-// method 2
-// const anchor = document.querySelector('a')!;
-// console.log(anchor.href);
-// type casting
-// const form = document.querySelector('form')!;
-// console.log(form);
+// classes
+class Invoice {
+    constructor(c, d, a, s) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+        this.sum = s;
+    }
+    format() {
+        //this.sum = 10; inside/outside can't do this, because is readonly
+        return `${this.client} qwes $${this.amount} for ${this.details}`;
+    }
+}
+class InvoiceSame {
+    // in constructor explicity modifiers is required
+    constructor(client, details, amount, sum) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+        this.sum = sum;
+    }
+    format() {
+        //this.sum = 10; inside/outside can't do this, because is readonly
+        return `${this.client} qwes $${this.amount} for ${this.details}`;
+    }
+}
+const invOne = new Invoice('mario', 'work on the mario website', 250, 1000);
+const invTwo = new Invoice('luigi', 'work on the luigi website', 300, 1500);
+console.log(invOne, invTwo);
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+invoices.forEach((inv) => {
+    //inv.sum = 10; inside/outside can't do this, because is readonly
+    //console.log(inv.client, inv.details, inv.amount, inv.format()); - error - inv.details is private
+    console.log(inv.client, inv.amount, inv.format());
+});
 const form = document.querySelector('.new-item-form');
 // console.log(form.children);
 // inpust
