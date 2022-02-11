@@ -1,7 +1,7 @@
 import { HasFormatter } from "../interfaces/HasFormatter.js";
 
 // classes
-export class Invoice implements HasFormatter {
+export class Payment implements HasFormatter {
     
     // in constructor explicity modifiers is required
    constructor(

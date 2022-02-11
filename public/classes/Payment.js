@@ -1,5 +1,5 @@
 // classes
-export class Invoice {
+export class Payment {
     // in constructor explicity modifiers is required
     constructor(client, details, amount) {
         this.client = client;
