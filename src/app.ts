@@ -29,6 +29,11 @@ form.addEventListener('submit', (e: Event) => {
 
 })
 
+
+// ENUM
+enum ResourceType  { BOOK, AUTHOR, FILM, DIRECTOR, PERSON };
+
+// GENERICS
 const addID = <T extends {name: string}>(obj: T) => {
     let uid = Math.floor(Math.random() * 100);
     return {...obj, uid};
@@ -46,13 +51,13 @@ interface Resource<T> {
 };
 
 const docThree: Resource<object> = {
-    uid: 1,
+    uid: ResourceType.BOOK,
     name: 'shaun',
     data: {name: 'shaun'}
 }
 
 const docFour: Resource<string[]> ={
-    uid: 2,
+    uid: ResourceType.PERSON,
     name: 'shopping list',
     data: ['bread', 'milk', 'toilet roll']
 }
