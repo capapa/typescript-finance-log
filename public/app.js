@@ -21,3 +21,22 @@ form.addEventListener('submit', (e) => {
     const lf = new ListFormatter(list);
     lf.render(doc, type.value, 'start');
 });
+const addID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addID({ name: 'yoshi', age: 28 });
+//let docTwo = addID('hello');
+console.log(docOne.name);
+;
+const docThree = {
+    uid: 1,
+    name: 'shaun',
+    data: { name: 'shaun' }
+};
+const docFour = {
+    uid: 2,
+    name: 'shopping list',
+    data: ['bread', 'milk', 'toilet roll']
+};
+console.log(docFour);

@@ -28,3 +28,33 @@ form.addEventListener('submit', (e: Event) => {
     lf.render(doc, type.value, 'start');
 
 })
+
+const addID = <T extends {name: string}>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+
+let docOne = addID({name: 'yoshi', age: 28});
+//let docTwo = addID('hello');
+
+console.log(docOne.name);
+
+interface Resource<T> {
+    uid: number,
+    name: string,
+    data: T
+};
+
+const docThree: Resource<object> = {
+    uid: 1,
+    name: 'shaun',
+    data: {name: 'shaun'}
+}
+
+const docFour: Resource<string[]> ={
+    uid: 2,
+    name: 'shopping list',
+    data: ['bread', 'milk', 'toilet roll']
+}
+
+console.log(docFour);
